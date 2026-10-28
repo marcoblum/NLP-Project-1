@@ -218,3 +218,21 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# ==========================================
+# NLP Project – Training & Experiments
+# ==========================================
+
+# Weights & Biases (Logs und lokale Experimentdaten)
+wandb/
+
+# Trainierte Modelle und Checkpoints
+outputs/checkpoints/
+
+# Lokale Datensätze (falls später vorhanden)
+data/raw/
+data/processed/
+
+# Zusätzliche Umgebungsdateien mit Zugangsdaten
+.env.*
