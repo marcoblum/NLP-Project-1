@@ -1,0 +1,13 @@
+{
+  "result": {
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "dropout": 0.0,
+    "weight_decay": 0.01,
+    "best_valid_accuracy": 0.666,
+    "best_epoch": 17,
+    "training_time_seconds": 30.9,
+    "checkpoint_path": null
+  },
+  "log": "BS 128 | Epoch 1/30 | Train Acc: 55.29% | Valid Acc: 54.70%\nBS 128 | Epoch 2/30 | Train Acc: 60.25% | Valid Acc: 58.80%\nBS 128 | Epoch 3/30 | Train Acc: 64.48% | Valid Acc: 59.90%\nBS 128 | Epoch 4/30 | Train Acc: 67.64% | Valid Acc: 59.70%\nBS 128 | Epoch 5/30 | Train Acc: 70.89% | Valid Acc: 61.30%\nBS 128 | Epoch 6/30 | Train Acc: 73.73% | Valid Acc: 62.40%\nBS 128 | Epoch 7/30 | Train Acc: 76.10% | Valid Acc: 63.20%\nBS 128 | Epoch 8/30 | Train Acc: 78.35% | Valid Acc: 64.40%\nBS 128 | Epoch 9/30 | Train Acc: 80.35% | Valid Acc: 64.80%\nBS 128 | Epoch 10/30 | Train Acc: 82.31% | Valid Acc: 64.80%\nBS 128 | Epoch 11/30 | Train Acc: 84.08% | Valid Acc: 65.70%\nBS 128 | Epoch 12/30 | Train Acc: 85.77% | Valid Acc: 65.50%\nBS 128 | Epoch 13/30 | Train Acc: 87.23% | Valid Acc: 64.60%\nBS 128 | Epoch 14/30 | Train Acc: 88.59% | Valid Acc: 66.00%\nBS 128 | Epoch 15/30 | Train Acc: 89.86% | Valid Acc: 66.10%\nBS 128 | Epoch 16/30 | Train Acc: 91.04% | Valid Acc: 65.50%\nBS 128 | Epoch 17/30 | Train Acc: 92.20% | Valid Acc: 66.60%\nBS 128 | Epoch 18/30 | Train Acc: 93.07% | Valid Acc: 65.70%\nBS 128 | Epoch 19/30 | Train Acc: 94.07% | Valid Acc: 65.90%\nBS 128 | Epoch 20/30 | Train Acc: 94.85% | Valid Acc: 66.10%\nBS 128 | Epoch 21/30 | Train Acc: 95.62% | Valid Acc: 65.30%\nBS 128 | Epoch 22/30 | Train Acc: 96.08% | Valid Acc: 64.90%\nEarly Stopping nach Epoche 22\n\nBeste Validation Accuracy: 66.60%\nBeste Epoche: 17\nTrainingszeit: 30.9 Sekunden\n"
+}

@@ -1,0 +1,13 @@
+{
+  "result": {
+    "batch_size": 512,
+    "learning_rate": 0.001,
+    "dropout": 0.0,
+    "weight_decay": 0.01,
+    "best_valid_accuracy": 0.658,
+    "best_epoch": 24,
+    "training_time_seconds": 24.3,
+    "checkpoint_path": null
+  },
+  "log": "BS 512 | Epoch 1/60 | Train Acc: 54.12% | Valid Acc: 52.60%\nBS 512 | Epoch 2/60 | Train Acc: 57.31% | Valid Acc: 54.00%\nBS 512 | Epoch 3/60 | Train Acc: 59.41% | Valid Acc: 56.30%\nBS 512 | Epoch 4/60 | Train Acc: 61.94% | Valid Acc: 57.10%\nBS 512 | Epoch 5/60 | Train Acc: 63.92% | Valid Acc: 57.60%\nBS 512 | Epoch 6/60 | Train Acc: 65.69% | Valid Acc: 59.30%\nBS 512 | Epoch 7/60 | Train Acc: 67.62% | Valid Acc: 59.40%\nBS 512 | Epoch 8/60 | Train Acc: 69.45% | Valid Acc: 59.50%\nBS 512 | Epoch 9/60 | Train Acc: 71.38% | Valid Acc: 61.90%\nBS 512 | Epoch 10/60 | Train Acc: 73.14% | Valid Acc: 61.90%\nBS 512 | Epoch 11/60 | Train Acc: 74.32% | Valid Acc: 61.70%\nBS 512 | Epoch 12/60 | Train Acc: 75.75% | Valid Acc: 62.40%\nBS 512 | Epoch 13/60 | Train Acc: 76.87% | Valid Acc: 63.40%\nBS 512 | Epoch 14/60 | Train Acc: 78.17% | Valid Acc: 63.50%\nBS 512 | Epoch 15/60 | Train Acc: 79.34% | Valid Acc: 64.10%\nBS 512 | Epoch 16/60 | Train Acc: 80.45% | Valid Acc: 64.80%\nBS 512 | Epoch 17/60 | Train Acc: 81.61% | Valid Acc: 64.90%\nBS 512 | Epoch 18/60 | Train Acc: 82.58% | Valid Acc: 64.80%\nBS 512 | Epoch 19/60 | Train Acc: 83.46% | Valid Acc: 65.10%\nBS 512 | Epoch 20/60 | Train Acc: 84.42% | Valid Acc: 64.80%\nBS 512 | Epoch 21/60 | Train Acc: 85.16% | Valid Acc: 65.00%\nBS 512 | Epoch 22/60 | Train Acc: 85.98% | Valid Acc: 65.00%\nBS 512 | Epoch 23/60 | Train Acc: 86.77% | Valid Acc: 64.70%\nBS 512 | Epoch 24/60 | Train Acc: 87.53% | Valid Acc: 65.80%\nBS 512 | Epoch 25/60 | Train Acc: 88.10% | Valid Acc: 65.00%\nBS 512 | Epoch 26/60 | Train Acc: 88.67% | Valid Acc: 65.40%\nBS 512 | Epoch 27/60 | Train Acc: 89.30% | Valid Acc: 65.50%\nBS 512 | Epoch 28/60 | Train Acc: 89.89% | Valid Acc: 64.70%\nBS 512 | Epoch 29/60 | Train Acc: 90.64% | Valid Acc: 65.10%\nEarly Stopping nach Epoche 29\n\nBeste Validation Accuracy: 65.80%\nBeste Epoche: 24\nTrainingszeit: 24.3 Sekunden\n"
+}

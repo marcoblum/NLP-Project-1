@@ -1,0 +1,13 @@
+{
+  "result": {
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "dropout": 0.0,
+    "weight_decay": 0.001,
+    "best_valid_accuracy": 0.678,
+    "best_epoch": 23,
+    "training_time_seconds": 31.78696870058775,
+    "checkpoint_path": "C:\\Users\\Marco\\Marco\\Github\\NLP-Project-1\\outputs\\checkpoints\\word_embeddings_bs256_lr0.001_do0_wd0.001_ep60_p5_s42.pt"
+  },
+  "log": "BS 256 | DO 0.0 | Epoch 1/60 | Train Acc: 54.47% | Valid Acc: 53.00%\nBS 256 | DO 0.0 | Epoch 2/60 | Train Acc: 58.76% | Valid Acc: 56.70%\nBS 256 | DO 0.0 | Epoch 3/60 | Train Acc: 62.05% | Valid Acc: 57.80%\nBS 256 | DO 0.0 | Epoch 4/60 | Train Acc: 64.56% | Valid Acc: 59.90%\nBS 256 | DO 0.0 | Epoch 5/60 | Train Acc: 67.33% | Valid Acc: 59.30%\nBS 256 | DO 0.0 | Epoch 6/60 | Train Acc: 69.99% | Valid Acc: 60.40%\nBS 256 | DO 0.0 | Epoch 7/60 | Train Acc: 71.89% | Valid Acc: 61.70%\nBS 256 | DO 0.0 | Epoch 8/60 | Train Acc: 73.89% | Valid Acc: 63.20%\nBS 256 | DO 0.0 | Epoch 9/60 | Train Acc: 75.81% | Valid Acc: 63.60%\nBS 256 | DO 0.0 | Epoch 10/60 | Train Acc: 77.78% | Valid Acc: 64.90%\nBS 256 | DO 0.0 | Epoch 11/60 | Train Acc: 79.16% | Valid Acc: 65.20%\nBS 256 | DO 0.0 | Epoch 12/60 | Train Acc: 80.84% | Valid Acc: 65.60%\nBS 256 | DO 0.0 | Epoch 13/60 | Train Acc: 82.02% | Valid Acc: 65.20%\nBS 256 | DO 0.0 | Epoch 14/60 | Train Acc: 83.56% | Valid Acc: 66.00%\nBS 256 | DO 0.0 | Epoch 15/60 | Train Acc: 84.74% | Valid Acc: 65.60%\nBS 256 | DO 0.0 | Epoch 16/60 | Train Acc: 85.85% | Valid Acc: 66.10%\nBS 256 | DO 0.0 | Epoch 17/60 | Train Acc: 86.85% | Valid Acc: 66.30%\nBS 256 | DO 0.0 | Epoch 18/60 | Train Acc: 87.80% | Valid Acc: 66.30%\nBS 256 | DO 0.0 | Epoch 19/60 | Train Acc: 88.99% | Valid Acc: 66.60%\nBS 256 | DO 0.0 | Epoch 20/60 | Train Acc: 89.77% | Valid Acc: 66.60%\nBS 256 | DO 0.0 | Epoch 21/60 | Train Acc: 90.91% | Valid Acc: 67.10%\nBS 256 | DO 0.0 | Epoch 22/60 | Train Acc: 91.67% | Valid Acc: 67.10%\nBS 256 | DO 0.0 | Epoch 23/60 | Train Acc: 92.33% | Valid Acc: 67.80%\nBS 256 | DO 0.0 | Epoch 24/60 | Train Acc: 93.10% | Valid Acc: 67.20%\nBS 256 | DO 0.0 | Epoch 25/60 | Train Acc: 93.74% | Valid Acc: 67.40%\nBS 256 | DO 0.0 | Epoch 26/60 | Train Acc: 94.42% | Valid Acc: 67.00%\nBS 256 | DO 0.0 | Epoch 27/60 | Train Acc: 94.91% | Valid Acc: 67.40%\nBS 256 | DO 0.0 | Epoch 28/60 | Train Acc: 95.42% | Valid Acc: 67.40%\nEarly Stopping nach Epoche 28\n\nBeste Validation Accuracy: 67.80%\nBeste Epoche: 23\nTrainingszeit: 31.8 Sekunden\n"
+}

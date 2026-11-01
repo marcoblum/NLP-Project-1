@@ -1,0 +1,14 @@
+{
+  "result": {
+    "model_type": "rnn",
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "dropout": 0.5,
+    "weight_decay": 0.001,
+    "best_valid_accuracy": 0.643,
+    "best_epoch": 7,
+    "training_time_seconds": 41.849742899648845,
+    "checkpoint_path": "C:\\Users\\Marco\\Marco\\Github\\NLP-Project-1\\outputs\\checkpoints\\rnn_bs256_lr0.001_do0.5_wd0.001_ep60_p5_s123.pt"
+  },
+  "log": "BS 256 | DO 0.5 | Epoch 1/60 | Train Acc: 50.53% | Valid Acc: 51.80%\nBS 256 | DO 0.5 | Epoch 2/60 | Train Acc: 52.98% | Valid Acc: 54.60%\nBS 256 | DO 0.5 | Epoch 3/60 | Train Acc: 59.28% | Valid Acc: 57.40%\nBS 256 | DO 0.5 | Epoch 4/60 | Train Acc: 63.74% | Valid Acc: 61.80%\nBS 256 | DO 0.5 | Epoch 5/60 | Train Acc: 67.95% | Valid Acc: 62.90%\nBS 256 | DO 0.5 | Epoch 6/60 | Train Acc: 70.75% | Valid Acc: 63.70%\nBS 256 | DO 0.5 | Epoch 7/60 | Train Acc: 73.76% | Valid Acc: 64.30%\nBS 256 | DO 0.5 | Epoch 8/60 | Train Acc: 76.16% | Valid Acc: 63.00%\nBS 256 | DO 0.5 | Epoch 9/60 | Train Acc: 78.64% | Valid Acc: 62.40%\nBS 256 | DO 0.5 | Epoch 10/60 | Train Acc: 80.80% | Valid Acc: 63.70%\nBS 256 | DO 0.5 | Epoch 11/60 | Train Acc: 83.19% | Valid Acc: 63.20%\nBS 256 | DO 0.5 | Epoch 12/60 | Train Acc: 85.30% | Valid Acc: 62.90%\nEarly Stopping nach Epoche 12\n\nBeste Validation Accuracy: 64.30%\nBeste Epoche: 7\nTrainingszeit: 41.8 Sekunden\n"
+}

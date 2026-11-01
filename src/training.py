@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 import random
 import time
 
@@ -9,7 +10,7 @@ import wandb
 
 from torch.utils.data import DataLoader
 
-from src.models import WordEmbeddingModel
+from src.models import RNNModel, WordEmbeddingModel
 from src.preprocessing import collate_batch
 
 
@@ -87,8 +88,63 @@ def run_experiment(
     patience=5,
     seed=42,
     dropout=0.0,
-    weight_decay=0.01
+    weight_decay=0.01,
+    use_cache=True,
+    model_type="word_embeddings"
 ):
+
+    # Unterstützte Modelltypen: Kürzel für den W&B-Run-Namen und Klassenname
+    model_types = {
+        "word_embeddings": ("WE", "WordEmbeddingModel"),
+        "rnn": ("RNN", "RNNModel"),
+    }
+
+    if model_type not in model_types:
+        raise ValueError(
+            f"Unbekannter Modelltyp: {model_type!r}. "
+            f"Erlaubt sind: {', '.join(model_types)}"
+        )
+
+    run_prefix, model_name = model_types[model_type]
+
+    # 0. Gespeichertes Ergebnis verwenden, falls das Experiment bereits durchgeführt wurde.
+    #    Dadurch wird beim erneuten Ausführen des Notebooks weder trainiert
+    #    noch ein neuer W&B-Run erstellt.
+    #    Der Modelltyp steht am Anfang der ID ("word_embeddings_..." bzw. "rnn_..."),
+    #    dadurch bleiben die bisherigen Word-Embedding-IDs unverändert.
+    experiment_id = (
+        f"{model_type}_bs{batch_size}_"
+        f"lr{learning_rate:g}_do{dropout:g}_"
+        f"wd{weight_decay:g}_ep{epochs}_p{patience}_s{seed}"
+    )
+
+    result_path = Path(project_root) / "outputs" / "results" / f"{experiment_id}.json"
+
+    if use_cache and result_path.exists():
+        try:
+            cached = json.loads(result_path.read_text(encoding="utf-8"))
+            result = cached["result"]
+            checkpoint = Path(result["checkpoint_path"])
+
+            # Relative Pfade beziehen sich auf das Projektverzeichnis
+            if not checkpoint.is_absolute():
+                checkpoint = Path(project_root) / checkpoint
+
+            if checkpoint.is_file():
+                print(cached["log"], end="")
+                print(f"\n(Gespeichertes Ergebnis geladen: {result_path.name})")
+                return result
+
+            print("Checkpoint fehlt – Experiment wird erneut trainiert.")
+
+        except (OSError, ValueError, KeyError, TypeError):
+            print("Cache ungültig – Experiment wird erneut trainiert.")
+
+    log_lines = []
+
+    def log(line=""):
+        print(line)
+        log_lines.append(line)
 
     # 1. Zufallswerte setzen
     random.seed(seed)
@@ -115,11 +171,19 @@ def run_experiment(
     )
 
     # 3. Modell, Loss und Optimizer
-    experiment_model = WordEmbeddingModel(
-        vocab_size=len(vocab),
-        embedding_dim=50,
-        dropout=dropout
-    ).to(device)
+    if model_type == "rnn":
+        experiment_model = RNNModel(
+            vocab_size=len(vocab),
+            embedding_dim=50,
+            hidden_dim=64,
+            dropout=dropout
+        ).to(device)
+    else:
+        experiment_model = WordEmbeddingModel(
+            vocab_size=len(vocab),
+            embedding_dim=50,
+            dropout=dropout
+        ).to(device)
 
     criterion = nn.CrossEntropyLoss()
 
@@ -133,12 +197,13 @@ def run_experiment(
     run = wandb.init(
         project="NLP-Project-1",
         name=(
-            f"WE | BS{batch_size} | LR{learning_rate:g} | "
+            f"{run_prefix} | BS{batch_size} | LR{learning_rate:g} | "
             f"DO{dropout:g} | WD{weight_decay:g} | "
             f"EP{epochs} | P{patience} | S{seed}"
         ),
         config={
-            "model": "WordEmbeddingModel",
+            "model": model_name,
+            "model_type": model_type,
             "batch_size": batch_size,
             "epochs": epochs,
             "patience": patience,
@@ -155,11 +220,7 @@ def run_experiment(
     checkpoint_dir = Path(project_root) / "outputs" / "checkpoints"
     checkpoint_dir.mkdir(parents=True, exist_ok=True)
 
-    checkpoint_path = checkpoint_dir / (
-        f"word_embeddings_bs{batch_size}_"
-        f"lr{learning_rate:g}_do{dropout:g}_"
-        f"wd{weight_decay:g}_ep{epochs}_p{patience}_s{seed}.pt"
-    )
+    checkpoint_path = checkpoint_dir / f"{experiment_id}.pt"
 
     best_valid_acc = 0.0
     best_epoch = 0
@@ -197,6 +258,9 @@ def run_experiment(
                     "model_state_dict": experiment_model.state_dict(),
                     "optimizer_state_dict": experiment_optimizer.state_dict(),
                     "valid_accuracy": best_valid_acc,
+                    "model_type": model_type,
+                    "embedding_dim": 50,
+                    "hidden_dim": 64,
                     "batch_size": batch_size,
                     "learning_rate": learning_rate,
                     "dropout": dropout,
@@ -208,7 +272,7 @@ def run_experiment(
                 epochs_without_improvement += 1
 
             # Metriken protokollieren
-            wandb.log({
+            run.log({
                 "epoch": epoch + 1,
                 "train_loss": train_loss,
                 "train_accuracy": train_acc,
@@ -216,7 +280,7 @@ def run_experiment(
                 "valid_accuracy": valid_acc
             })
 
-            print(
+            log(
                 f"BS {batch_size} | DO {dropout} | "
                 f"Epoch {epoch+1}/{epochs} | "
                 f"Train Acc: {train_acc:.2%} | "
@@ -225,20 +289,22 @@ def run_experiment(
 
             # Early Stopping
             if epochs_without_improvement >= patience:
-                print(f"Early Stopping nach Epoche {epoch+1}")
+                log(f"Early Stopping nach Epoche {epoch+1}")
                 break
 
         elapsed = time.perf_counter() - start_time
 
-        wandb.summary["best_valid_accuracy"] = best_valid_acc
-        wandb.summary["best_epoch"] = best_epoch
-        wandb.summary["training_time_seconds"] = elapsed
+        run.summary["best_valid_accuracy"] = best_valid_acc
+        run.summary["best_epoch"] = best_epoch
+        run.summary["training_time_seconds"] = elapsed
 
-        print(f"\nBeste Validation Accuracy: {best_valid_acc:.2%}")
-        print(f"Beste Epoche: {best_epoch}")
-        print(f"Trainingszeit: {elapsed:.1f} Sekunden")
+        log()
+        log(f"Beste Validation Accuracy: {best_valid_acc:.2%}")
+        log(f"Beste Epoche: {best_epoch}")
+        log(f"Trainingszeit: {elapsed:.1f} Sekunden")
 
-        return {
+        result = {
+            "model_type": model_type,
             "batch_size": batch_size,
             "learning_rate": learning_rate,
             "dropout": dropout,
@@ -249,5 +315,18 @@ def run_experiment(
             "checkpoint_path": str(checkpoint_path)
         }
 
+        # Ergebnis und Trainingsverlauf für spätere Notebook-Ausführungen speichern
+        result_path.parent.mkdir(parents=True, exist_ok=True)
+        result_path.write_text(
+            json.dumps(
+                {"result": result, "log": "\n".join(log_lines) + "\n"},
+                indent=2,
+                ensure_ascii=False
+            ),
+            encoding="utf-8"
+        )
+
+        return result
+
     finally:
-        wandb.finish()
+        run.finish()

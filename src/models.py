@@ -64,3 +64,64 @@ class WordEmbeddingModel(nn.Module):
         logits = torch.cat([score_1, score_2], dim=1)
 
         return logits
+
+
+class RNNModel(nn.Module):
+    def __init__(
+        self,
+        vocab_size,
+        embedding_dim=50,
+        hidden_dim=64,
+        dropout=0.0
+    ):
+        super().__init__()
+
+        self.embedding = nn.Embedding(
+            vocab_size,
+            embedding_dim,
+            padding_idx=0
+        )
+
+        self.rnn = nn.GRU(
+            input_size=embedding_dim,
+            hidden_size=hidden_dim,
+            batch_first=True
+        )
+
+        self.classifier = nn.Sequential(
+            nn.Linear(hidden_dim * 3, 64),
+            nn.ReLU(),
+            nn.Dropout(dropout),
+            nn.Linear(64, 1)
+        )
+
+    def encode(self, tokens):
+        # Anzahl tatsächlicher Wörter (ohne Padding)
+        lengths = (tokens != 0).sum(dim=1).clamp(min=1)
+
+        embeddings = self.embedding(tokens)
+
+        packed = nn.utils.rnn.pack_padded_sequence(
+            embeddings,
+            lengths.cpu(),
+            batch_first=True,
+            enforce_sorted=False
+        )
+
+        _, hidden = self.rnn(packed)
+
+        return hidden[-1]
+
+    def forward(self, batch):
+        o1 = self.encode(batch["observation_1"])
+        o2 = self.encode(batch["observation_2"])
+        h1 = self.encode(batch["hypothesis_1"])
+        h2 = self.encode(batch["hypothesis_2"])
+
+        features_1 = torch.cat([o1, o2, h1], dim=1)
+        features_2 = torch.cat([o1, o2, h2], dim=1)
+
+        score_1 = self.classifier(features_1)
+        score_2 = self.classifier(features_2)
+
+        return torch.cat([score_1, score_2], dim=1)

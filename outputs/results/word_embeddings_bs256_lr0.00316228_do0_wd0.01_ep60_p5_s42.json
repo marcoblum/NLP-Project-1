@@ -1,0 +1,13 @@
+{
+  "result": {
+    "batch_size": 256,
+    "learning_rate": 0.0031622776601683794,
+    "dropout": 0.0,
+    "weight_decay": 0.01,
+    "best_valid_accuracy": 0.656,
+    "best_epoch": 9,
+    "training_time_seconds": 15.6,
+    "checkpoint_path": null
+  },
+  "log": "BS 256 | Epoch 1/60 | Train Acc: 56.75% | Valid Acc: 57.00%\nBS 256 | Epoch 2/60 | Train Acc: 63.97% | Valid Acc: 61.50%\nBS 256 | Epoch 3/60 | Train Acc: 70.44% | Valid Acc: 62.70%\nBS 256 | Epoch 4/60 | Train Acc: 75.28% | Valid Acc: 64.80%\nBS 256 | Epoch 5/60 | Train Acc: 79.30% | Valid Acc: 64.40%\nBS 256 | Epoch 6/60 | Train Acc: 82.61% | Valid Acc: 64.10%\nBS 256 | Epoch 7/60 | Train Acc: 85.80% | Valid Acc: 64.60%\nBS 256 | Epoch 8/60 | Train Acc: 88.76% | Valid Acc: 65.00%\nBS 256 | Epoch 9/60 | Train Acc: 91.30% | Valid Acc: 65.60%\nBS 256 | Epoch 10/60 | Train Acc: 93.51% | Valid Acc: 64.70%\nBS 256 | Epoch 11/60 | Train Acc: 95.17% | Valid Acc: 65.40%\nBS 256 | Epoch 12/60 | Train Acc: 96.30% | Valid Acc: 65.40%\nBS 256 | Epoch 13/60 | Train Acc: 97.36% | Valid Acc: 65.60%\nBS 256 | Epoch 14/60 | Train Acc: 98.12% | Valid Acc: 64.90%\nEarly Stopping nach Epoche 14\n\nBeste Validation Accuracy: 65.60%\nBeste Epoche: 9\nTrainingszeit: 15.6 Sekunden\n"
+}

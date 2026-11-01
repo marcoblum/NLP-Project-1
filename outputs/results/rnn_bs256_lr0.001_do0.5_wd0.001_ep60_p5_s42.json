@@ -1,0 +1,14 @@
+{
+  "result": {
+    "model_type": "rnn",
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "dropout": 0.5,
+    "weight_decay": 0.001,
+    "best_valid_accuracy": 0.661,
+    "best_epoch": 17,
+    "training_time_seconds": 76.32282709982246,
+    "checkpoint_path": "C:\\Users\\Marco\\Marco\\Github\\NLP-Project-1\\outputs\\checkpoints\\rnn_bs256_lr0.001_do0.5_wd0.001_ep60_p5_s42.pt"
+  },
+  "log": "BS 256 | DO 0.5 | Epoch 1/60 | Train Acc: 50.47% | Valid Acc: 56.50%\nBS 256 | DO 0.5 | Epoch 2/60 | Train Acc: 52.82% | Valid Acc: 55.70%\nBS 256 | DO 0.5 | Epoch 3/60 | Train Acc: 59.05% | Valid Acc: 60.80%\nBS 256 | DO 0.5 | Epoch 4/60 | Train Acc: 63.37% | Valid Acc: 61.10%\nBS 256 | DO 0.5 | Epoch 5/60 | Train Acc: 66.98% | Valid Acc: 62.80%\nBS 256 | DO 0.5 | Epoch 6/60 | Train Acc: 70.54% | Valid Acc: 63.30%\nBS 256 | DO 0.5 | Epoch 7/60 | Train Acc: 73.07% | Valid Acc: 63.20%\nBS 256 | DO 0.5 | Epoch 8/60 | Train Acc: 75.69% | Valid Acc: 64.50%\nBS 256 | DO 0.5 | Epoch 9/60 | Train Acc: 78.07% | Valid Acc: 64.60%\nBS 256 | DO 0.5 | Epoch 10/60 | Train Acc: 80.27% | Valid Acc: 64.30%\nBS 256 | DO 0.5 | Epoch 11/60 | Train Acc: 82.71% | Valid Acc: 65.40%\nBS 256 | DO 0.5 | Epoch 12/60 | Train Acc: 85.05% | Valid Acc: 64.40%\nBS 256 | DO 0.5 | Epoch 13/60 | Train Acc: 87.15% | Valid Acc: 65.70%\nBS 256 | DO 0.5 | Epoch 14/60 | Train Acc: 88.91% | Valid Acc: 65.70%\nBS 256 | DO 0.5 | Epoch 15/60 | Train Acc: 90.59% | Valid Acc: 64.40%\nBS 256 | DO 0.5 | Epoch 16/60 | Train Acc: 92.36% | Valid Acc: 65.10%\nBS 256 | DO 0.5 | Epoch 17/60 | Train Acc: 93.68% | Valid Acc: 66.10%\nBS 256 | DO 0.5 | Epoch 18/60 | Train Acc: 94.60% | Valid Acc: 66.00%\nBS 256 | DO 0.5 | Epoch 19/60 | Train Acc: 95.71% | Valid Acc: 66.00%\nBS 256 | DO 0.5 | Epoch 20/60 | Train Acc: 96.32% | Valid Acc: 65.70%\nBS 256 | DO 0.5 | Epoch 21/60 | Train Acc: 97.07% | Valid Acc: 65.00%\nBS 256 | DO 0.5 | Epoch 22/60 | Train Acc: 97.07% | Valid Acc: 65.30%\nEarly Stopping nach Epoche 22\n\nBeste Validation Accuracy: 66.10%\nBeste Epoche: 17\nTrainingszeit: 76.3 Sekunden\n"
+}

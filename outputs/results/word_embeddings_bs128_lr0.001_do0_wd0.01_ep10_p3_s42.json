@@ -1,0 +1,13 @@
+{
+  "result": {
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "dropout": 0.0,
+    "weight_decay": 0.01,
+    "best_valid_accuracy": 0.648,
+    "best_epoch": 9,
+    "training_time_seconds": 14.6,
+    "checkpoint_path": null
+  },
+  "log": "BS 128 | Epoch 1/10 | Train Acc: 55.29% | Valid Acc: 54.70%\nBS 128 | Epoch 2/10 | Train Acc: 60.25% | Valid Acc: 58.80%\nBS 128 | Epoch 3/10 | Train Acc: 64.48% | Valid Acc: 59.90%\nBS 128 | Epoch 4/10 | Train Acc: 67.64% | Valid Acc: 59.70%\nBS 128 | Epoch 5/10 | Train Acc: 70.89% | Valid Acc: 61.30%\nBS 128 | Epoch 6/10 | Train Acc: 73.73% | Valid Acc: 62.40%\nBS 128 | Epoch 7/10 | Train Acc: 76.10% | Valid Acc: 63.20%\nBS 128 | Epoch 8/10 | Train Acc: 78.35% | Valid Acc: 64.40%\nBS 128 | Epoch 9/10 | Train Acc: 80.35% | Valid Acc: 64.80%\nBS 128 | Epoch 10/10 | Train Acc: 82.31% | Valid Acc: 64.80%\n\nBeste Validation Accuracy: 64.80%\nBeste Epoche: 9\nTrainingszeit: 14.6 Sekunden\n"
+}

@@ -1,0 +1,13 @@
+{
+  "result": {
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "dropout": 0.0,
+    "weight_decay": 0.0,
+    "best_valid_accuracy": 0.649,
+    "best_epoch": 10,
+    "training_time_seconds": 16.93249580077827,
+    "checkpoint_path": "C:\\Users\\Marco\\Marco\\Github\\NLP-Project-1\\outputs\\checkpoints\\word_embeddings_bs256_lr0.001_do0_wd0_ep60_p5_s42.pt"
+  },
+  "log": "BS 256 | DO 0.0 | Epoch 1/60 | Train Acc: 54.44% | Valid Acc: 52.90%\nBS 256 | DO 0.0 | Epoch 2/60 | Train Acc: 58.75% | Valid Acc: 56.90%\nBS 256 | DO 0.0 | Epoch 3/60 | Train Acc: 62.01% | Valid Acc: 58.00%\nBS 256 | DO 0.0 | Epoch 4/60 | Train Acc: 64.64% | Valid Acc: 59.80%\nBS 256 | DO 0.0 | Epoch 5/60 | Train Acc: 67.24% | Valid Acc: 60.00%\nBS 256 | DO 0.0 | Epoch 6/60 | Train Acc: 69.83% | Valid Acc: 60.50%\nBS 256 | DO 0.0 | Epoch 7/60 | Train Acc: 71.95% | Valid Acc: 61.90%\nBS 256 | DO 0.0 | Epoch 8/60 | Train Acc: 73.97% | Valid Acc: 63.20%\nBS 256 | DO 0.0 | Epoch 9/60 | Train Acc: 75.76% | Valid Acc: 63.60%\nBS 256 | DO 0.0 | Epoch 10/60 | Train Acc: 77.57% | Valid Acc: 64.90%\nBS 256 | DO 0.0 | Epoch 11/60 | Train Acc: 79.08% | Valid Acc: 64.80%\nBS 256 | DO 0.0 | Epoch 12/60 | Train Acc: 80.61% | Valid Acc: 64.80%\nBS 256 | DO 0.0 | Epoch 13/60 | Train Acc: 81.92% | Valid Acc: 64.70%\nBS 256 | DO 0.0 | Epoch 14/60 | Train Acc: 83.42% | Valid Acc: 64.90%\nBS 256 | DO 0.0 | Epoch 15/60 | Train Acc: 84.80% | Valid Acc: 64.50%\nEarly Stopping nach Epoche 15\n\nBeste Validation Accuracy: 64.90%\nBeste Epoche: 10\nTrainingszeit: 16.9 Sekunden\n"
+}
